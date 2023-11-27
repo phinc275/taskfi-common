@@ -37,7 +37,7 @@ func WithOnMessageDeliveryFailed(onMessageDeliveryFailed func(message kafka.Mess
 	}
 }
 
-func NewKafkaProducer(cfg *KafkaProducerConfig, opts []func(*KafkaProducer)) (*KafkaProducer, error) {
+func NewKafkaProducer(cfg *KafkaProducerConfig, opts ...func(*KafkaProducer)) (*KafkaProducer, error) {
 	schemaRegistryCfg := schemaregistry.NewConfig(cfg.SchemaRegistryURL)
 	schemaRegistryClient, err := schemaregistry.NewClient(schemaRegistryCfg)
 	if err != nil {
