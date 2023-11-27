@@ -1,4 +1,4 @@
-package taskfi_common
+package common
 
 import (
 	"github.com/confluentinc/confluent-kafka-go/v2/kafka"
