@@ -1,4 +1,4 @@
-module github.com/phinc275/taskfi-common/core
+module github.com/phinc275/taskfi-common/go/core
 
 go 1.19
 

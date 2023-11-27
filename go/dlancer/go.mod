@@ -1,4 +1,4 @@
-module github.com/phinc275/taskfi-common/dlancer
+module github.com/phinc275/taskfi-common/go/dlancer
 
 go 1.19
 
