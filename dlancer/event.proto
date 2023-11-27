@@ -39,7 +39,7 @@ message EventWorkspaceCompleted {
 message EventMoneySpent {
   google.protobuf.Timestamp timestamp = 1;
   string user_id = 2;
-  float amount = 3;
+  double amount = 3;
 }
 
 message EventProfileVerified {
