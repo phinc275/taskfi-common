@@ -1,0 +1,94 @@
+syntax="proto3";
+package core;
+option go_package = "github.com/phinc275/taskfi-common/go/common";
+
+import "google/protobuf/timestamp.proto";
+
+message Event {
+  oneof event_data {
+      EventSocialConnected social_connected = 1001;
+      EventSocialRankingUpdated social_ranking_updated = 1002;
+      EventLoyaltyEarned loyalty_earned = 1003;
+
+      EventJobCompleted job_completed = 2001;
+      EventJobApplied job_applied = 2002;
+      EventJobPosted job_posted = 2003;
+      EventUserAccessed user_accessed = 2004;
+      EventWorkspaceCompleted workspace_completed = 2005;
+      EventMoneySpent money_spent = 2006;
+      EventProfileVerified profile_verified = 2007;
+      EventProfileViewed profile_viewed = 2008;
+  }
+}
+
+// == core events
+
+message EventSocialConnected {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string provider = 3;
+}
+
+message EventSocialRankingUpdated {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string provider = 3;
+    string rank = 4;
+}
+
+message EventLoyaltyEarned {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    int64 amount = 3;
+}
+
+// == dlancer events
+
+message EventJobCompleted {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string job_id = 3;
+    string job_category = 4;
+}
+
+message EventJobApplied {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string job_id = 3;
+    string job_category = 4;
+}
+
+message EventJobPosted {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string job_id = 3;
+    string job_category = 4;
+}
+
+message EventUserAccessed {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+}
+
+message EventWorkspaceCompleted {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string workspace_id = 3;
+}
+
+message EventMoneySpent {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    double amount = 3;
+}
+
+message EventProfileVerified {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+    string verify_type = 3;
+}
+
+message EventProfileViewed {
+    google.protobuf.Timestamp timestamp = 1;
+    string user_id = 2;
+}
